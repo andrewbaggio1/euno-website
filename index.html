@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Euno</title>
+    <meta name="description" content="Euno website">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles.css?v=2025-10-07-2">
+  </head>
+  <body>
+    <div class="app-shell">
+      <svg width="0" height="0" style="position:absolute; left:-9999px; top:-9999px" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="accentGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="var(--accent-start)"/>
+            <stop offset="100%" stop-color="var(--accent-end)"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <aside class="sidebar" aria-label="Global navigation">
+        <div class="logo" aria-hidden="true">e</div>
+        <nav class="side-nav">
+          <a href="#explore" class="side-link" data-route="explore" title="Explore" aria-label="Explore">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M14.5 9.5l-3 7-1-3-3-1 7-3z"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#profile" class="side-link" data-route="profile" title="Profile" aria-label="Profile">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="7" r="4"/>
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#trends" class="side-link" data-route="trends" title="Trends" aria-label="Trends">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23 7l-7 7-5-5-7 7"/>
+                <path d="M17 7h6v6"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#intangibles" class="side-link" data-route="intangibles" title="Intangibles" aria-label="Intangibles">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="6" cy="12" r="3"/>
+                <circle cx="18" cy="6" r="3"/>
+                <circle cx="18" cy="18" r="3"/>
+                <path d="M8.7 10.6L15.3 7.4"/>
+                <path d="M8.7 13.4L15.3 16.6"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#projects" class="side-link" data-route="projects" title="Projects" aria-label="Projects">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 7h6l2 2h10v8a2 2 0 01-2 2H5a2 2 0 01-2-2V7z"/>
+              </svg>
+            </span>
+          </a>
+        </nav>
+        <div class="spacer"></div>
+        <nav class="side-bottom">
+          <a href="#organization" class="side-link" data-route="organization" title="My Organization" aria-label="My Organization">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 20h18"/>
+                <path d="M5 20v-6h4v6"/>
+                <path d="M10 20v-10h4v10"/>
+                <path d="M15 20v-4h4v4"/>
+                <path d="M7 10h2"/>
+                <path d="M12 8h2"/>
+                <path d="M17 12h2"/>
+              </svg>
+            </span>
+          </a>
+          <a href="#settings" class="side-link" data-route="settings" title="Settings" aria-label="Settings">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 9l8-5 8 5v6l-8 5-8-5V9z"/>
+                <circle cx="12" cy="12" r="2.5"/>
+              </svg>
+            </span>
+          </a>
+        </nav>
+      </aside>
+
+      <header class="topbar" aria-label="Section navigation">
+        <div class="topbar-inner container">
+          <div class="topbar-saved" id="topbar-saved" aria-label="Saved controls">
+            <button type="button" class="circle-btn circle-btn-sm mode-btn" id="topbar-btn-search" aria-label="Search" title="Search">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="M20 20l-3.5-3.5"/>
+              </svg>
+            </button>
+            <button type="button" class="circle-btn circle-btn-sm mode-btn" id="topbar-btn-plus" aria-label="Create" title="Create">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M12 5v14"/>
+                <path d="M5 12h14"/>
+              </svg>
+            </button>
+            <button type="button" class="circle-btn circle-btn-sm mode-btn" id="topbar-btn-folder" aria-label="Saved folders" title="Saved folders">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M3 7h6l2 2h10v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>
+              </svg>
+            </button>
+            <button type="button" class="circle-btn circle-btn-sm mode-btn" id="topbar-btn-list" aria-label="Lists" title="Lists">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M8 6h13"/>
+                <path d="M8 12h13"/>
+                <path d="M8 18h13"/>
+                <path d="M3 6h.01"/>
+                <path d="M3 12h.01"/>
+                <path d="M3 18h.01"/>
+              </svg>
+            </button>
+          </div>
+          <div class="topbar-title" id="topbar-title"></div>
+          <button type="button" id="topbar-help" class="topbar-help" aria-label="Help">Help</button>
+        </div>
+      </header>
+
+      <main class="site-main">
+        <div class="container">
+          <section id="explore-screen" class="screen" role="region" aria-labelledby="title-explore">
+            <div class="explore-wrap">
+              <div class="explore-hero">
+                <h1 id="title-explore" class="explore-title">euno</h1>
+                <p class="explore-subtitle">query the collective human experience</p>
+                <form class="explore-search" id="explore-search" role="search" aria-label="Explore search" onsubmit="return false;">
+                  <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"/>
+                    <path d="M20 20l-3.5-3.5"/>
+                  </svg>
+                  <input id="explore-search-input" type="search" placeholder="Search" aria-label="Search">
+                </form>
+              </div>
+              <div class="explore-content" aria-label="Live metrics">
+                <div class="marquee" id="explore-marquee">
+                  <div class="row" data-speed="18">
+                    <div class="stream">
+                      <span class="chip">Total Individuals (Live) <span class="value">138,934</span></span>
+                      <span class="chip">Profiles with Recent Activity (Past Week) <span class="value">78% of profiles</span></span>
+                      <span class="chip">Emerging Trends Detected (This Week) <span class="value">4</span></span>
+                      <span class="chip">Models Refreshed (Rolling 24h) <span class="value">3× daily</span></span>
+                      <span class="chip">Recent Cohort Growth Rate <span class="value">+0.9% new members added week-over-week</span></span>
+                    </div>
+                    <div class="stream clone"></div>
+                  </div>
+                  <div class="row" data-speed="14">
+                    <div class="stream">
+                      <span class="chip">New Journal Data Points Today (Last 24h) <span class="value">12,481</span></span>
+                      <span class="chip">Behavioral Events Logged (Last 24h) <span class="value">326,000</span></span>
+                      <span class="chip">Peak Update Times (Local Time) <span class="value">7–11 PM EST</span></span>
+                      <span class="chip">Average Time Between Profile Updates <span class="value">~2.4 hours</span></span>
+                      <span class="chip">Time Since Last Full System Sync <span class="value">21 minutes ago</span></span>
+                    </div>
+                    <div class="stream clone"></div>
+                  </div>
+                  <div class="row" data-speed="22">
+                    <div class="stream">
+                      <span class="chip">New Profiles Added (Last 7 Days) <span class="value">1,092</span></span>
+                      <span class="chip">Active Regions <span class="value">47 active geographic zones</span></span>
+                      <span class="chip">Velocity of Change Index <span class="value">1.3% population attribute changes this week</span></span>
+                      <span class="chip">System Processing Throughput <span class="value">~1.2M events/minute</span></span>
+                    </div>
+                    <div class="stream clone"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="profile-screen" class="screen" role="region" aria-labelledby="title-profile">
+            <h2 id="title-profile" style="display:none">Profile</h2>
+            <div class="profile-grid">
+              <div class="panel">
+                <div class="panel-inner presearch">
+                  <div class="presearch-profile" aria-label="Pre-search cohorts">
+                    <div class="profile-placeholder" role="presentation" aria-label="Profile placeholder">
+                      <div class="profile-search">
+                        <form class="profile-search-form" id="profile-search-form" role="search" aria-label="Profile search" onsubmit="return false;">
+                          <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"/>
+                            <path d="M20 20l-3.5-3.5"/>
+                  </svg>
+                          <input id="profile-search-input" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                      </div>
+                      <div class="placeholder-labels" aria-hidden="true">
+                        <span class="label-left">Population Profile</span>
+                        <span class="label-right">Rep. (%)</span>
+                      </div>
+                      <div class="placeholder-body">
+                        
+                        <div class="filter-controls">
+                          <div class="filter-buttons" role="group" aria-label="Filter categories">
+                            <button type="button" class="pill-btn">Watchlists</button>
+                            <button type="button" class="pill-btn">Demographic</button>
+                            <button type="button" class="pill-btn">Geographic</button>
+                            <button type="button" class="pill-btn">Psychographic</button>
+                            <button type="button" class="pill-btn">Behavioral</button>
+                            <button type="button" class="pill-btn">Economic</button>
+                            <button type="button" class="pill-btn">Lifestyle</button>
+                            <button type="button" class="pill-btn">Temporal</button>
+                            <button type="button" class="pill-btn">Institutional</button>
+                            <button type="button" class="pill-btn">Data Quality</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cohort-list-wrap">
+                      <ul id="cohort-list" class="cohort-list quality-list" role="listbox" aria-label="Cohorts">
+                        <li class="selectable" role="option" aria-selected="false"><span>Americans</span><span class="value">97%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Affluent Americans</span><span class="value">99%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Millennial Professional</span><span class="value">94%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Gen Z Consumers</span><span class="value">93%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Urban Progressives</span><span class="value">95%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Suburban Families</span><span class="value">96%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Health Enthusiasts</span><span class="value">92%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Small Business Owners</span><span class="value">91%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Retirees & Near-Retirees</span><span class="value">98%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Sustainability-Oriented Consumers</span><span class="value">94%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Frequent Travelers & Global Citizens</span><span class="value">96%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Middle-Class Americans</span><span class="value">95%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Health-Conscious Consumers</span><span class="value">93%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Parents of Young Children</span><span class="value">96%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Diverse & Multicultural Millennials</span><span class="value">92%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Digital Creators & Influencers</span><span class="value">94%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Climate-Concerned Citizens</span><span class="value">97%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Financially Vulnerable Households</span><span class="value">91%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Emerging Affluents (25–40)</span><span class="value">95%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Gen Z Adults</span><span class="value">93%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Aging Professionals (50–65)</span><span class="value">96%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Gig Economy Workers</span><span class="value">92%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Women with Economic Influence</span><span class="value">97%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>Rural & Small-Town Residents</span><span class="value">94%</span></li>
+                        <li class="selectable" role="option" aria-selected="false"><span>First-Generation College Graduates</span><span class="value">95%</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-inner">
+                  <svg class="panel-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="14" rx="2"/>
+                    <path d="M7 15v1"/>
+                    <path d="M11 12v4"/>
+                    <path d="M15 9v7"/>
+                  </svg>
+                  <h3 class="panel-title">Dataset Quality & Statistics</h3>
+                </div>
+              </div>
+              <div class="panel">
+                <div class="panel-inner">
+                  <svg class="panel-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M4 7h16v8a2 2 0 0 1-2 2H8l-4 4V7z"/>
+                    <path d="M8 11h8"/>
+                    <path d="M8 14h5"/>
+                  </svg>
+                  <h3 class="panel-title">Chat Inquiry</h3>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="trends-screen" class="screen" role="region" aria-labelledby="title-trends">
+            <div class="placeholder">
+              <h2 id="title-trends">Trends</h2>
+              <p>Coming soon</p>
+            </div>
+          </section>
+
+          <section id="intangibles-screen" class="screen" role="region" aria-labelledby="title-intangibles">
+            <div class="placeholder">
+              <h2 id="title-intangibles">Intangibles</h2>
+              <p>Coming soon</p>
+            </div>
+          </section>
+
+          <section id="projects-screen" class="screen" role="region" aria-labelledby="title-projects">
+            <div class="placeholder">
+              <h2 id="title-projects">Projects</h2>
+              <p>Coming soon</p>
+            </div>
+          </section>
+
+          <section id="organization-screen" class="screen" role="region" aria-labelledby="title-organization">
+            <div class="placeholder">
+              <h2 id="title-organization">My Organization</h2>
+              <p>Coming soon</p>
+            </div>
+          </section>
+
+          <section id="settings-screen" class="screen" role="region" aria-labelledby="title-settings">
+            <div class="placeholder">
+              <h2 id="title-settings">Settings</h2>
+              <p>Coming soon</p>
+            </div>
+          </section>
+        </div>
+
+        <footer class="site-footer">
+          <div class="container">
+            <p>© <span id="year"></span> Euno</p>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Global fake data store
+      const FAKE_STORE = {
+        searches: [
+          'current WashU undergraduates majoring in business or computer science who live on campus',
+          'registered Democrats in Chicago aged 25 to 55 who voted in the last two midterms',
+          'people with more than $500k in assets and frequent luxury purchase activity',
+          'users showing recent health-related spending or wearable data changes suggesting increased stress',
+          'people relocating in the last 3 months who have started new jobs in tech or finance'
+        ]
+      };
+
+      // Explore metrics removed for now
+
+      const routes = ["explore", "profile", "trends", "intangibles", "projects", "organization", "settings"];
+      const titleCase = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+      // Explore marquee data
+      const EXPLORE_CHIPS = [
+        ['Total Individuals (Live)', '138,934'],
+        ['New Journal Data Points Today (Last 24h)', '12,481'],
+        ['New Profiles Added (Last 7 Days)', '1,092'],
+        ['Profiles with Recent Activity (Past Week)', '78% of profiles'],
+        ['Behavioral Events Logged (Last 24h)', '326,000'],
+        ['Active Regions', '47 active geographic zones'],
+        ['Emerging Trends Detected (This Week)', '4'],
+        ['Peak Update Times (Local Time)', '7–11 PM EST'],
+        ['Velocity of Change Index', '1.3% population attribute changes this week'],
+        ['Models Refreshed (Rolling 24h)', '3× daily'],
+        ['Average Time Between Profile Updates', '~2.4 hours'],
+        ['System Processing Throughput', '~1.2M events/minute'],
+        ['Recent Cohort Growth Rate', '+0.9% new members added week-over-week'],
+        ['Time Since Last Full System Sync', '21 minutes ago']
+      ];
+
+      const MARQUEE = { rows: [], raf: 0, last: 0 };
+
+      function startExplore() {
+        const marquee = document.getElementById('explore-marquee');
+        if (!marquee) return;
+        // Build rows only once
+        if (MARQUEE.rows.length === 0) {
+          const rows = marquee.querySelectorAll('.row');
+          rows.forEach((rowEl, rowIdx) => {
+            const speed = parseFloat(rowEl.dataset.speed || '18');
+            const stream = rowEl.querySelector('.stream');
+            const clone = rowEl.querySelector('.stream.clone');
+            if (!stream || !clone) return;
+            // Fill clone with same items
+            clone.innerHTML = stream.innerHTML;
+            const containerWidth = rowEl.getBoundingClientRect().width;
+            const duration = Math.max(40, (stream.scrollWidth / containerWidth) * 30); // scale duration
+            stream.style.setProperty('--dur', `${duration}s`);
+            clone.style.setProperty('--dur', `${duration}s`);
+            // Record row for restarts (store only refs)
+            MARQUEE.rows.push({ rowEl, speed, stream, clone });
+          });
+        }
+        if (MARQUEE.raf) cancelAnimationFrame(MARQUEE.raf);
+        MARQUEE.last = performance.now();
+        // CSS-driven; no per-frame work needed now
+        MARQUEE.raf = requestAnimationFrame(() => {});
+      }
+
+      function stopExplore() {
+        if (MARQUEE.raf) cancelAnimationFrame(MARQUEE.raf);
+        MARQUEE.raf = 0;
+        MARQUEE.last = 0;
+      }
+
+      function stepMarquee() {}
+
+      function setActiveRoute(route) {
+        if (!routes.includes(route)) route = "profile";
+
+        // Update hash without scrolling
+        if (location.hash.replace('#','') !== route) {
+          history.replaceState(null, '', `#${route}`);
+        }
+
+        // Toggle screens
+        document.querySelectorAll('.screen').forEach(sec => sec.style.display = 'none');
+        const activeScreen = document.getElementById(`${route}-screen`);
+        if (activeScreen) activeScreen.style.display = 'block';
+
+        // Update nav active state
+        document.querySelectorAll('.side-link').forEach(link => {
+          const isActive = link.getAttribute('data-route') === route;
+          if (isActive) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+          }
+        });
+
+        // Update topbar title
+        const topbarTitle = document.getElementById('topbar-title');
+        topbarTitle.textContent = titleCase(route);
+
+        // Toggle topbar controls on Profile only
+        const helpEl = document.getElementById('topbar-help');
+        const savedWrap = document.getElementById('topbar-saved');
+        if (savedWrap) savedWrap.style.display = route === 'profile' ? 'inline-flex' : 'none';
+        if (helpEl) helpEl.style.display = route === 'profile' ? 'inline-flex' : 'none';
+
+        // Hide topbar and reclaim space on Explore
+        document.body.classList.toggle('route-explore', route === 'explore');
+
+        // Start/pause Explore animation when entering/leaving
+        if (route === 'explore') {
+          startExplore();
+        } else {
+          stopExplore();
+        }
+
+        // Reset profile panels to placeholders when leaving the tab
+        if (route !== 'profile') {
+          document.querySelectorAll('#profile-screen .panel-inner').forEach(inner => {
+            if (inner.dataset.prev) {
+              inner.innerHTML = inner.dataset.prev;
+              delete inner.dataset.prev;
+            }
+            inner.classList.remove('filled');
+          });
+        }
+
+        // Apply current Profile mode when on Profile
+        if (route === 'profile') {
+          if (window.setProfileMode && window.PROFILE_MODE) {
+            window.setProfileMode(window.PROFILE_MODE);
+          }
+        }
+      }
+
+      window.addEventListener('hashchange', () => setActiveRoute(location.hash.replace('#','')));
+      document.addEventListener('DOMContentLoaded', () => {
+        setActiveRoute(location.hash.replace('#','') || 'profile');
+
+        // Pre-search cohort row selection
+        const cohortList = document.getElementById('cohort-list');
+        if (cohortList) {
+          cohortList.addEventListener('click', (e) => {
+            const item = e.target.closest('li.selectable');
+            if (!item || !cohortList.contains(item)) return;
+            cohortList.querySelectorAll('li.selectable.selected').forEach(el => {
+              if (el !== item) {
+                el.classList.remove('selected');
+                el.setAttribute('aria-selected', 'false');
+              }
+            });
+            const nowSelected = !item.classList.contains('selected');
+            item.classList.toggle('selected', nowSelected);
+            item.setAttribute('aria-selected', nowSelected ? 'true' : 'false');
+          });
+        }
+
+        // Profile modes: presearch (default), view (load content), create (blank left panel)
+        window.PROFILE_MODE = 'presearch';
+
+        function restoreProfilePanels() {
+          document.querySelectorAll('#profile-screen .panel-inner').forEach(inner => {
+            if (inner.dataset.prev) {
+              inner.innerHTML = inner.dataset.prev;
+              delete inner.dataset.prev;
+            }
+            inner.classList.remove('filled');
+          });
+        }
+
+        function loadCustomProfileView(queryText) {
+            const panels = document.querySelectorAll('#profile-screen .panel-inner');
+            panels.forEach(inner => {
+            inner.dataset.prev = inner.innerHTML;
+              inner.innerHTML = '<div class="spinner"></div>';
+            });
+
+            setTimeout(() => {
+              const leftPanel = document.querySelector('#profile-screen .panel:nth-child(1) .panel-inner');
+              const midPanel = document.querySelector('#profile-screen .panel:nth-child(2) .panel-inner');
+              const rightPanel = document.querySelector('#profile-screen .panel:nth-child(3) .panel-inner');
+              if (leftPanel) {
+                leftPanel.classList.add('filled');
+                leftPanel.innerHTML = `
+                  <div class="panel-result">
+                    <div class="summary">
+                      <h4 class="summary-title">Population Profile Summary</h4>
+                      <div class="field">
+                        <label class="field-label" for="pop-name">Profile name</label>
+                        <input id="pop-name" class="name-input" value="High-Asset Luxury Consumers">
+                      </div>
+                      <div class="field">
+                        <label class="field-label" for="pop-query">Original search query</label>
+                      <textarea id="pop-query" class="query-box">${queryText}</textarea>
+                    </div>
+                    </div>
+                    <div class="param">
+                      <h4 class="param-title">Parameters</h4>
+                      <ul class="param-list" id="param-list">
+                        <li class="param-item">total_assets > $500,000</li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="param-item">Average discretionary purchase > $400</li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                      </ul>
+                      <button type="button" class="param-add" aria-label="Add constraint">+
+                        <span style="font-size:12px; font-weight:600;">Add constraint</span>
+                      </button>
+                    </div>
+                    <div class="stats mid-start">
+                      <h4 class="stats-title">Statistics</h4>
+                      <ul class="stats-list" id="stats-list">
+                        <li class="row"><span>Population size</span><strong>48,321</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Avg Assets</span><strong>$1.27M</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Median Assets</span><strong>$890k</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Max / Min Assets</span><strong>$18.2M / $510k</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Avg discretionary purchase</span><strong>$742</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                      </ul>
+                    </div>
+                  </div>
+                `;
+              }
+
+            // After an additional 1s, load Dataset Quality panel content and Chat
+              setTimeout(() => {
+              if (midPanel) {
+                midPanel.classList.add('filled');
+                midPanel.innerHTML = `
+                  <div class="panel-result">
+                    <div class="param">
+                      <h4 class="param-title">Dataset Quality</h4>
+                      <ul class="param-list quality-list">
+                        <li class="row"><span>Population size</span><span class="value">48,321 entities</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Data freshness</span><span class="value">avg age 12 days</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Field completeness</span><span class="value">92.4%</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Accuracy confidence</span><span class="value">78% verified</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Consistency score</span><span class="value">96%</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Duplicate rate</span><span class="value">1.8%</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Validity score</span><span class="value">98%</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Source reliability tier</span><span class="value">Partner-supplied (Tier A)</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Anomaly rate</span><span class="value">0.9%</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Overall data confidence index</span><span class="value">88/100</span></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                      </ul>
+                    </div>
+                    <div class="stats">
+                      <h4 class="stats-title">Qualitative Integrity Indicators</h4>
+                      <ul class="stats-list">
+                        <li class="row"><span>Demographic balance</span><strong>Under-rep: 18–24 (-6%)</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Activity bias</span><strong>High-activity skew (+12%)</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Temporal bias</span><strong>Q2 2025 concentration</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Consent coverage</span><strong>84% explicit</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                        <li class="row"><span>Source/context bias</span><strong>US coastal, enterprise-heavy</strong></li>
+                        <div class="row-detail"><div class="spinner"></div></div>
+                      </ul>
+                    </div>
+                  </div>`;
+              }
+
+                if (rightPanel) {
+                  rightPanel.classList.add('filled');
+                  rightPanel.innerHTML = `
+                    <div class="panel-result" style="display:flex; height:100%;">
+                      <div class="chat-container">
+                        <div class="chat-hint" id="chat-hint" aria-live="polite">Inquire the population dataset</div>
+                        <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+                        <form class="chat-input" id="chat-form" onsubmit="return false;">
+                          <div class="input-wrap">
+                            <textarea id="chat-textarea" rows="1" placeholder="Ask a question…" aria-label="Chat input"></textarea>
+                            <div class="suggestion" id="chat-suggestion" role="button" tabindex="0" aria-label="Insert suggested question"></div>
+                          </div>
+                          <button type="button" id="chat-send" class="send-btn" aria-label="Send">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                              <path d="M5 12h12"></path>
+                              <path d="M13 6l6 6-6 6"></path>
+                            </svg>
+                          </button>
+                        </form>
+                      </div>
+                    </div>`;
+
+                  const SUGGESTED_Q = 'What does this group seem to value most in their financial relationships, and how do they tend to connect emotionally to institutions like ours?';
+
+                  const chatTextarea = rightPanel.querySelector('#chat-textarea');
+                  const sendBtn = rightPanel.querySelector('#chat-send');
+                  const inputWrap = rightPanel.querySelector('.input-wrap');
+                  const suggestionEl = rightPanel.querySelector('#chat-suggestion');
+                  const messagesEl = rightPanel.querySelector('#chat-messages');
+
+                  if (suggestionEl) suggestionEl.textContent = SUGGESTED_Q;
+
+                  function updateSendDisabled() {
+                    const hasText = !!(chatTextarea && chatTextarea.value.trim());
+                    if (sendBtn) sendBtn.disabled = !hasText;
+                  }
+                  updateSendDisabled();
+
+                  if (chatTextarea && inputWrap && suggestionEl) {
+                    chatTextarea.addEventListener('focus', () => {
+                      inputWrap.classList.add('focused');
+                    });
+                    chatTextarea.addEventListener('input', () => {
+                      updateSendDisabled();
+                      if ((chatTextarea.value || '').length > 0) {
+                        suggestionEl.style.display = 'none';
+                      }
+                    });
+                    document.addEventListener('click', (e) => {
+                      if (!rightPanel.contains(e.target)) {
+                        inputWrap.classList.remove('focused');
+                      }
+                    });
+                    suggestionEl.addEventListener('click', () => {
+                      chatTextarea.value = SUGGESTED_Q;
+                      suggestionEl.style.display = 'none';
+                      updateSendDisabled();
+                      chatTextarea.focus();
+                    });
+                    suggestionEl.addEventListener('keydown', (e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        suggestionEl.click();
+                      }
+                    });
+                  }
+
+                  function appendUserMessage(text) {
+                    if (!messagesEl) return;
+                    const block = document.createElement('div');
+                    block.className = 'msg msg-user';
+                    block.innerHTML = `<div class="msg-content">${text.replace(/\n/g, '<br>')}</div>`;
+                    messagesEl.appendChild(block);
+                    messagesEl.scrollTop = messagesEl.scrollHeight;
+                  }
+                  function appendAssistantTyping() {
+                    if (!messagesEl) return null;
+                    const block = document.createElement('div');
+                    block.className = 'msg msg-assistant msg-typing';
+                    block.innerHTML = `<div class="msg-content"><span class="typing-ring"></span></div>`;
+                    messagesEl.appendChild(block);
+                    messagesEl.scrollTop = messagesEl.scrollHeight;
+                    return block;
+                  }
+                  function replaceTypingWithAssistant(block, text) {
+                    if (!block) return;
+                    block.classList.remove('msg-typing');
+                    const contentEl = block.querySelector('.msg-content');
+                    if (contentEl) {
+                      contentEl.innerHTML = text.replace(/\n/g, '<br>');
+                    }
+                    if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight;
+                  }
+
+                  if (sendBtn && chatTextarea) {
+                    sendBtn.addEventListener('click', () => {
+                      const content = (chatTextarea.value || '').trim();
+                      if (!content) return;
+                      appendUserMessage(content);
+                      chatTextarea.value = '';
+                      updateSendDisabled();
+                      const hintEl = rightPanel.querySelector('#chat-hint');
+                      if (hintEl) hintEl.style.display = 'none';
+                      const typingEl = appendAssistantTyping();
+                      const RESPONSE = `This population consistently demonstrates a preference for depth, discretion, and resonance in their financial relationships. The data shows that, for them, money is less about accumulation and more about continuity — a means of creating rhythm and intentional control over life’s pacing. They view financial partnerships not as transactions but as extensions of their identity management system: the institutions they align with become part of how they stabilize and express themselves.
+
+Values & Motivations:
+They tend to value intelligence expressed quietly — precision over flash, and expertise that feels grounded rather than performative. Advisory communications that contextualize decisions within a broader personal philosophy (“legacy,” “freedom,” “curation”) perform markedly better than those emphasizing performance metrics. When they trust an institution, it’s because that institution demonstrates a mirrored intentionality — understanding not only what to do with their money, but why they would want to.
+
+Emotional Dynamics:
+Emotional language patterns and feedback signals suggest that their primary affective driver is trust built through recognition. They are highly sensitive to tone and can quickly detect when a relationship becomes procedural rather than personal. They associate relational quality with consistency of care — having the same advisor, familiar rituals, the same level of attention even when they’re not actively transacting. Abrupt changes in personnel or policy are perceived not as operational shifts but as a subtle betrayal of intimacy.
+
+Relationship Archetypes:
+Within this group, we see three dominant relational archetypes emerge:
+
+The Steward: values long-term guidance and narrative continuity; stays with institutions that “remember their story.”
+
+The Curator: seeks bespoke access, not volume — drawn to advisors who can translate financial products into expressions of personal aesthetic.
+
+The Rational Romantic: balances data-driven decision-making with emotion; appreciates when the institution acknowledges both their analytical mind and their intuitive motives.
+
+Perception of Institutions:
+They do not view banks or private capital firms as “service providers.” They prefer them to act as interpreters of their intent — translating ambition into structured, elegant outcomes. They are attracted to institutions that behave more like cultural actors than financial entities — brands that speak with coherence, grace, and ethical clarity.
+
+Engagement Cues:
+
+Language emphasizing craft, longevity, and discretion correlates strongly with positive sentiment.
+
+Aggressive performance messaging or “exclusive” branding tends to repel; they associate overt salesmanship with lack of sophistication.
+
+They appreciate institutions that anticipate their rhythms (e.g., offering liquidity flexibility around major life events or travel seasons).
+
+In Summary:
+The underlying pattern is clear: they relate to wealth and institutions as extensions of their pursuit of self-mastery. The relationship they want isn’t one of access, but of attunement — to be met where they are, by a partner who understands that financial elegance is psychological, cultural, and temporal all at once.`;
+                      setTimeout(() => replaceTypingWithAssistant(typingEl, RESPONSE), 1000);
+                    });
+                  }
+                }
+              }, 1000);
+            }, 2000);
+        }
+
+        function setProfileMode(mode) {
+          window.PROFILE_MODE = mode;
+          if (mode === 'presearch') {
+            restoreProfilePanels();
+            return;
+          }
+          if (mode === 'create') {
+            restoreProfilePanels();
+            const leftPanel = document.querySelector('#profile-screen .panel:nth-child(1) .panel-inner');
+            if (leftPanel) {
+              leftPanel.dataset.prev = leftPanel.innerHTML;
+              leftPanel.classList.add('filled');
+              leftPanel.innerHTML = `
+                <div class="create-profile" aria-label="Custom Profile Create">
+                  <div class="presearch-profile">
+                    <div class="profile-placeholder" role="presentation" aria-label="Create placeholder">
+                      <div class="create-box">
+                        <div class="create-title">custom population profile pulling</div>
+                        <div class="create-toggle" id="create-toggle" role="tablist" aria-label="Mode">
+                          <button type="button" class="toggle-btn active" data-mode="auto" role="tab" aria-selected="true">Auto</button>
+                          <button type="button" class="toggle-btn" data-mode="manual" role="tab" aria-selected="false">Manual</button>
+                        </div>
+                        <div class="create-input-wrap">
+                          <textarea id="create-text" class="create-textarea" placeholder="describe the custom profile you would like to pull from our dataset"></textarea>
+                          <button type="button" id="create-send" class="create-send" aria-label="Send">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h12"></path><path d="M13 6l6 6-6 6"></path></svg>
+                          </button>
+                        </div>
+                        <div class="create-history" id="create-history" aria-label="Suggested queries"></div>
+                      </div>
+                    </div>
+                    <div class="cohort-list-wrap"><div class="bottom-label">Parameters</div></div>
+                  </div>
+                </div>
+              `;
+
+              // Build overlay history and wire send
+              const createSuggest = leftPanel.querySelector('#create-history');
+              const createText = leftPanel.querySelector('#create-text');
+              const createSend = leftPanel.querySelector('#create-send');
+              if (createSuggest && Array.isArray(FAKE_STORE.searches)) {
+                createSuggest.innerHTML = `<div class="label">Recommended</div>` +
+                  FAKE_STORE.searches.map(q => `<div class="item" role="option">${q}</div>`).join('');
+                createSuggest.addEventListener('click', (e) => {
+                  const item = e.target.closest('.item');
+                  if (!item) return;
+                  if (createText) {
+                    createText.value = item.textContent || '';
+                    createSuggest.style.display = 'none';
+                    createText.focus();
+                  }
+                });
+              }
+              if (createSend && createText) {
+                createSend.addEventListener('click', () => {
+                  const content = (createText.value || '').trim();
+                  if (!content) return;
+                  setProfileMode('view');
+                  loadCustomProfileView(content);
+                  if (typeof updateModeActive === 'function') updateModeActive();
+                });
+              }
+              // Toggle Auto/Manual
+              const createToggle = leftPanel.querySelector('#create-toggle');
+              const inputWrap = leftPanel.querySelector('.create-input-wrap');
+              const createRoot = leftPanel.querySelector('.create-profile');
+              function setCreateModeLocal(mode) {
+                const btns = createToggle ? createToggle.querySelectorAll('.toggle-btn') : [];
+                btns.forEach(b => {
+                  const isActive = (b.getAttribute('data-mode') === mode);
+                  b.classList.toggle('active', isActive);
+                  b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+                if (inputWrap) inputWrap.style.display = mode === 'auto' ? 'block' : 'none';
+                if (mode !== 'auto' && createSuggest) createSuggest.style.display = 'none';
+                if (createRoot) {
+                  createRoot.classList.toggle('mode-auto', mode === 'auto');
+                  createRoot.classList.toggle('mode-manual', mode === 'manual');
+                }
+              }
+              if (createToggle) {
+                createToggle.addEventListener('click', (e) => {
+                  const btn = e.target.closest('.toggle-btn');
+                  if (!btn) return;
+                  const mode = btn.getAttribute('data-mode') || 'auto';
+                  setCreateModeLocal(mode);
+                });
+              }
+              setCreateModeLocal('auto');
+            }
+            return;
+          }
+          if (mode === 'view') {
+            const defaultQuery = (FAKE_STORE.searches && FAKE_STORE.searches[2]) || 'people with more than $500k in assets and frequent luxury purchase activity';
+            loadCustomProfileView(defaultQuery);
+            return;
+          }
+        }
+
+        window.setProfileMode = setProfileMode;
+        window.enterCustomProfileView = () => setProfileMode('view');
+        window.enterCustomProfileCreate = () => setProfileMode('create');
+
+        // Wire topbar buttons
+        const plusBtn = document.getElementById('topbar-btn-plus');
+        const searchBtn = document.getElementById('topbar-btn-search');
+        function updateModeActive() {
+          const btns = document.querySelectorAll('.mode-btn');
+          btns.forEach(b => b.classList.remove('active'));
+          if (window.PROFILE_MODE === 'presearch') {
+            const b = document.getElementById('topbar-btn-search');
+            if (b) b.classList.add('active');
+          } else if (window.PROFILE_MODE === 'create') {
+            const b = document.getElementById('topbar-btn-plus');
+            if (b) b.classList.add('active');
+          }
+        }
+
+        if (plusBtn) plusBtn.addEventListener('click', () => { setProfileMode('create'); updateModeActive(); });
+        if (searchBtn) searchBtn.addEventListener('click', () => { setProfileMode('presearch'); updateModeActive(); });
+
+        // Keep indicator in sync when route/mode changes programmatically
+        updateModeActive();
+      });
+    </script>
+  </body>
+  </html>
+
